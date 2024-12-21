@@ -1,0 +1,162 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    line-height: 1.6;
+    background-color: #ffffff;
+}
+
+header {
+    text-align: center;
+    padding: 3px 20px; 
+}
+
+header h1 {
+    font-size: 2.2rem; 
+    margin-bottom: 5px;
+    color: #000000;
+}
+
+header p {
+    font-size: 1.3rem;
+    color: #666466;
+}
+
+nav ul {
+    list-style-type: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 6px;
+}
+
+nav ul li a {
+    color: #f78a2f;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 16px; 
+    padding: 2px 5px; 
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+main h1 {
+    font-size: 3rem;
+    text-align: center;
+    color: #f78a2f;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.content {
+    text-align: center;
+    padding: 20px 10px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.heading-and-image,
+.text-and-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.heading-and-image h1,
+.text-and-image h1 {
+    font-size: 3rem;
+    color: #f78a2f;
+}
+
+.welcome, 
+.mason-shipton, 
+.john-douglas-shipton, 
+.al-bbq, 
+.audience-award, 
+.university, 
+.professors, 
+.ripley, 
+.capybara {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.welcome {
+    max-width: 120px;
+}
+
+.mason-shipton, 
+.al-bbq, 
+.audience-award {
+    max-width: 350px;
+}
+
+.john-douglas-shipton {
+    max-width: 200px;
+}
+
+.university {
+    max-width: 300px;
+}
+
+.professors {
+    max-width: 350px;
+}
+
+.ripley {
+    max-width: 200px;
+}
+
+.capybara {
+    max-width: 250px;
+}
+
+main p {
+    font-size: 1.2rem;
+    line-height: 1.4;
+    color: #666466;
+    text-align: justify;
+    margin-bottom: 30px;
+    padding: 0 15px;
+}
+
+ul {
+    list-style-type: disc;
+    margin: 10px 0 10px 20px;
+    padding: 0;
+    text-align: left;
+    color: #666466;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+ul ul {
+    list-style-type: circle;
+    margin: 5px 0 5px 20px;
+}
+
+li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+    font-size: 1.2rem;
+}
+
+li strong {
+    color: #333;
+    font-weight: bold;
+}
