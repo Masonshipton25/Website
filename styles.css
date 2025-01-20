@@ -7,7 +7,8 @@ body {
     background-position: center;
     background-attachment: fixed;
     line-height: 1.6;
-    background-color: #ffffff;
+    background-color: transparent;
+    transition: all 0.3s ease;
 }
 
 header {
@@ -16,7 +17,7 @@ header {
 }
 
 header h1 {
-    font-size: 2.2rem; 
+    font-size: 4rem; 
     margin-bottom: 5px;
     color: #000000;
 }
@@ -24,6 +25,103 @@ header h1 {
 header p {
     font-size: 1.3rem;
     color: #666466;
+}
+
+#p-dark-mode-change {
+    color: #666466;
+    transition: color 0.3s ease;
+}
+
+.dark-mode #p-dark-mode-change {
+    color: #ffffff;
+}
+
+.skills-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.skills-scroll {
+    display: flex;
+    overflow-x: hidden;  /* Hide extra content when wrapping */
+    padding: 10px;
+    gap: 20px;
+    scroll-behavior: smooth;
+}
+
+.skill-item {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: scale(1.2);
+}
+
+.dark-mode {
+    background-image: url('images/dark-mode.jpg');;
+    background-color: #121212;
+    color: white;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    color: white;
+    border-radius: 5px;
+    position: absolute;
+    margin: 20px;
+    right: 10px;
+    z-index: 50;
+}
+
+button img {
+    width: 50px; 
+    height: 50px;
+}
+
+button:hover {
+    background-color: transparent;
+}
+
+#h1-dark-mode-change {
+    color: #000000;
+    transition: color 0.3s ease;
+}
+
+.dark-mode #h1-dark-mode-change {
+    color: #399bd8;
+}
+
+#typing-text {
+    font-size: 1.3rem;
+    color: #666466;
+    white-space: nowrap; 
+    overflow: hidden;
+    border-right: 2px solid #666466;
+    animation: blink-cursor 0.7s steps(2) infinite;
+}
+
+.dark-mode #typing-text {
+    color: white;
+    border-right: 2px solid white;
+}
+
+@keyframes blink-cursor {
+    0% {
+        border-color: transparent;
+    }
+    50% {
+        border-color: #666466;
+    }
+    100% {
+        border-color: transparent;
+    }
 }
 
 nav ul {
@@ -42,7 +140,7 @@ nav ul li a {
     color: #f78a2f;
     font-weight: bold;
     text-decoration: none;
-    font-size: 16px; 
+    font-size: 20px; 
     padding: 2px 5px; 
 }
 
@@ -78,52 +176,104 @@ main h1 {
 
 .heading-and-image h1,
 .text-and-image h1 {
-    font-size: 3rem;
+    font-size: 4rem;
     color: #f78a2f;
+    margin: 0;
+    padding: 0; 
 }
 
-.welcome, 
-.mason-shipton, 
-.john-douglas-shipton, 
-.al-bbq, 
-.audience-award, 
-.university, 
-.professors, 
-.ripley, 
-.capybara {
+.mason-shipton {
     width: 100%;
+    max-width: 350px;
     height: auto;
     border-radius: 8px;
 }
 
-.welcome {
-    max-width: 120px;
+.grades-scroll-container {
+    text-align: center;
+    margin-top: 50px;
 }
 
-.mason-shipton, 
-.al-bbq, 
-.audience-award {
-    max-width: 350px;
+.grades-scroll {
+    display: flex;
+    overflow-x: hidden;
+    white-space: nowrap;
+    padding: 10px;
+    gap: 20px;
+}
+
+.grade-item {
+    font-size: 18px;
+    font-weight: bold;
+    color: #f78a2f;
+    padding: 5px 10px;
+    transition: transform 0.3s ease;
+}
+
+.grade-item:hover {
+    transform: scale(1.2);
 }
 
 .john-douglas-shipton {
+    width: auto;          
     max-width: 200px;
+    height: auto;       
+    border-radius: 8px; 
+    display: block;      
+    margin: 0 auto; 
+}
+
+.al-bbq {
+    width: auto;          
+    max-width: 350px;
+    height: auto;       
+    border-radius: 8px; 
+    display: block;      
+    margin: 0 auto; 
+}
+
+.audience-award {
+    width: auto;
+    max-width: 350px;
+    height: auto;       
+    border-radius: 8px; 
+    display: block;      
+    margin: 0 auto; 
 }
 
 .university {
+    width: auto;
     max-width: 300px;
+    height: auto;       
+    border-radius: 8px; 
+    display: block;      
+    margin: 0 auto; 
 }
-
+ 
 .professors {
+    width: auto;
     max-width: 350px;
-}
+    height: auto;       
+    border-radius: 8px; 
+    display: block;      
+    margin: 0 auto; 
+} 
 
 .ripley {
+    width: auto;
     max-width: 200px;
+    height: auto;       
+    border-radius: 8px; 
+    display: block;      
+    margin: 0 auto; 
+
 }
 
 .capybara {
+    width: 100%;
     max-width: 250px;
+    height: auto;
+    border-radius: 8px;
 }
 
 main p {
@@ -159,4 +309,72 @@ li {
 li strong {
     color: #333;
     font-weight: bold;
+}
+
+.leelab {
+    width: auto;          
+    max-width: 450px;    
+    height: auto;       
+    border-radius: 8px; 
+    display: block;      
+    margin: 0 auto;     
+}
+
+.uriel {
+    width: auto;             
+    height: auto;       
+    border-radius: 8px; 
+    display: block;      
+    margin: 0 auto;     
+}
+
+figcaption {
+    text-align: center;
+    font-size: 1em;
+    font-style: italic;
+    margin-top: 5px;
+    color: #555;
+}
+
+ol {
+    list-style-type: decimal;
+    margin: 10px 0 10px 20px;
+    padding: 0;
+    text-align: left;
+    color: #666466;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.feature_coverage,
+.imputation_quality_test,
+.downstream_task,
+.contents {
+    width: auto;          
+    height: auto;       
+    border-radius: 8px; 
+    display: block;      
+    margin: 0 auto; 
+}
+
+.audience-award2 {
+    width: auto;          
+    max-width: 700px;    
+    height: auto;       
+    border-radius: 8px; 
+    display: block;      
+    margin: 0 auto; 
+}
+
+.linkedin,
+.github,
+.bluesky,
+.instagram,
+.gmail {
+    float: right;
+    margin-left: 10px;
+    width: 100%;
+    max-width: 50px;
+    height: auto;
+    border-radius: 8px;
 }
