@@ -1,3 +1,4 @@
+/* General Layout and Body */
 body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
@@ -6,91 +7,42 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    background-color: #d9f1ff; /* Matches the main colour of the background-image */
     line-height: 1.6;
-    background-color: transparent;
     transition: all 0.3s ease;
 }
 
-header {
-    text-align: center;
-    padding: 3px 20px; 
-}
-
-header h1 {
-    font-size: 4rem; 
-    margin-bottom: 5px;
-    color: #000000;
-}
-
-header p {
-    font-size: 1.3rem;
-    color: #666466;
-}
-
-#p-dark-mode-change {
-    color: #666466;
-    transition: color 0.3s ease;
-}
-
-.dark-mode #p-dark-mode-change {
-    color: #ffffff;
-}
-
-.skills-container {
-    text-align: center;
-    margin-top: 50px;
-}
-
-.skills-scroll {
-    display: flex;
-    overflow-x: hidden;  /* Hide extra content when wrapping */
-    padding: 10px;
-    gap: 20px;
-    scroll-behavior: smooth;
-}
-
-.skill-item {
-    width: 70px;
-    height: 70px;
-    object-fit: contain;
-    transition: transform 0.3s ease;
-}
-
-.skill-item:hover {
-    transform: scale(1.2);
-}
-
+/* Dark Mode Styling */
 .dark-mode {
-    background-image: url('images/dark-mode.jpg');;
+    background-image: url('images/dark-mode.jpg');
     background-color: #121212;
     color: white;
 }
 
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
-    background-color: transparent;
-    color: white;
-    border-radius: 5px;
-    position: absolute;
-    margin: 20px;
-    right: 10px;
-    z-index: 50;
+/* Text and Header */
+header {
+    text-align: center;
+    padding: 3px 20px;
 }
 
-button img {
-    width: 50px; 
-    height: 50px;
+header h1 {
+    font-size: 4rem;
+    margin-bottom: 5px;
+    color: #000;
 }
 
-button:hover {
-    background-color: transparent;
+header p, #p-dark-mode-change {
+    font-size: 1.3rem;
+    color: #666;
+    transition: color 0.3s ease;
+}
+
+.dark-mode #p-dark-mode-change {
+    color: #fff;
 }
 
 #h1-dark-mode-change {
-    color: #000000;
+    color: #000;
     transition: color 0.3s ease;
 }
 
@@ -98,32 +50,7 @@ button:hover {
     color: #399bd8;
 }
 
-#typing-text {
-    font-size: 1.3rem;
-    color: #666466;
-    white-space: nowrap; 
-    overflow: hidden;
-    border-right: 2px solid #666466;
-    animation: blink-cursor 0.7s steps(2) infinite;
-}
-
-.dark-mode #typing-text {
-    color: white;
-    border-right: 2px solid white;
-}
-
-@keyframes blink-cursor {
-    0% {
-        border-color: transparent;
-    }
-    50% {
-        border-color: #666466;
-    }
-    100% {
-        border-color: transparent;
-    }
-}
-
+/* Navigation */
 nav ul {
     list-style-type: none;
     text-align: center;
@@ -140,14 +67,15 @@ nav ul li a {
     color: #f78a2f;
     font-weight: bold;
     text-decoration: none;
-    font-size: 20px; 
-    padding: 2px 5px; 
+    font-size: 20px;
+    padding: 2px 5px;
 }
 
 nav ul li a:hover {
     text-decoration: underline;
 }
 
+/* Content and Main Sections */
 main h1 {
     font-size: 3rem;
     text-align: center;
@@ -163,6 +91,7 @@ main h1 {
     margin: 0 auto;
 }
 
+/* Flex Containers */
 .heading-and-image,
 .text-and-image {
     display: flex;
@@ -174,125 +103,104 @@ main h1 {
     margin: 0 auto;
 }
 
-.heading-and-image h1,
-.text-and-image h1 {
-    font-size: 4rem;
-    color: #f78a2f;
-    margin: 0;
-    padding: 0; 
-}
-
-.mason-shipton {
-    width: 100%;
+.generic-image {
+    width: auto;
     max-width: 350px;
     height: auto;
     border-radius: 8px;
+    display: block;
+    margin: 0 auto;
 }
 
-.grades-scroll-container {
+/* Skills and Grades Scroll */
+.skills-container, .grades-container {
     text-align: center;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
-.grades-scroll {
+.skills-scroll, .grades-scroll {
     display: flex;
-    overflow-x: hidden;
+    overflow: hidden;
     white-space: nowrap;
-    padding: 10px;
-    gap: 20px;
+    gap: 50px;
+    padding: 20px 0;
+}
+
+.skill-item, .grade-item {
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.skill-item {
+    width: auto;
+    height: 70px;
+    object-fit: contain;
 }
 
 .grade-item {
     font-size: 18px;
     font-weight: bold;
     color: #f78a2f;
+    margin-right: 20px;
     padding: 5px 10px;
-    transition: transform 0.3s ease;
 }
 
-.grade-item:hover {
+.grade-item:hover, .skill-item:hover {
     transform: scale(1.2);
 }
 
-.john-douglas-shipton {
-    width: auto;          
-    max-width: 200px;
-    height: auto;       
-    border-radius: 8px; 
-    display: block;      
-    margin: 0 auto; 
+/* Button Styles */
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    color: white;
+    border-radius: 5px;
+    position: absolute;
+    margin: 20px;
+    right: 10px;
+    z-index: 50;
 }
 
-.al-bbq {
-    width: auto;          
-    max-width: 350px;
-    height: auto;       
-    border-radius: 8px; 
-    display: block;      
-    margin: 0 auto; 
+button img {
+    width: 50px;
+    height: 50px;
 }
 
-.audience-award {
-    width: auto;
-    max-width: 350px;
-    height: auto;       
-    border-radius: 8px; 
-    display: block;      
-    margin: 0 auto; 
+/* Typing Text Effect */
+#typing-text {
+    font-size: 1.3rem;
+    color: #666;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #666;
+    animation: blink-cursor 0.7s steps(2) infinite;
 }
 
-.university {
-    width: auto;
-    max-width: 300px;
-    height: auto;       
-    border-radius: 8px; 
-    display: block;      
-    margin: 0 auto; 
-}
- 
-.professors {
-    width: auto;
-    max-width: 350px;
-    height: auto;       
-    border-radius: 8px; 
-    display: block;      
-    margin: 0 auto; 
-} 
-
-.ripley {
-    width: auto;
-    max-width: 200px;
-    height: auto;       
-    border-radius: 8px; 
-    display: block;      
-    margin: 0 auto; 
-
+.dark-mode #typing-text {
+    color: white;
+    border-right: 2px solid white;
 }
 
-.capybara {
-    width: 100%;
-    max-width: 250px;
-    height: auto;
-    border-radius: 8px;
+@keyframes blink-cursor {
+    0%, 100% {
+        border-color: transparent;
+    }
+    50% {
+        border-color: #666;
+    }
 }
 
-main p {
+/* Lists */
+main p, ul, ol {
     font-size: 1.2rem;
-    line-height: 1.4;
-    color: #666466;
+    line-height: 1.6;
+    color: #666;
     text-align: justify;
     margin-bottom: 30px;
     padding: 0 15px;
-}
-
-ul {
-    list-style-type: disc;
-    margin: 10px 0 10px 20px;
-    padding: 0;
-    text-align: left;
-    color: #666466;
-    font-size: 1.2rem;
-    line-height: 1.6;
 }
 
 ul ul {
@@ -300,34 +208,7 @@ ul ul {
     margin: 5px 0 5px 20px;
 }
 
-li {
-    margin-bottom: 10px;
-    line-height: 1.6;
-    font-size: 1.2rem;
-}
-
-li strong {
-    color: #333;
-    font-weight: bold;
-}
-
-.leelab {
-    width: auto;          
-    max-width: 450px;    
-    height: auto;       
-    border-radius: 8px; 
-    display: block;      
-    margin: 0 auto;     
-}
-
-.uriel {
-    width: auto;             
-    height: auto;       
-    border-radius: 8px; 
-    display: block;      
-    margin: 0 auto;     
-}
-
+/* Figure and Captions */
 figcaption {
     text-align: center;
     font-size: 1em;
@@ -336,41 +217,25 @@ figcaption {
     color: #555;
 }
 
-ol {
-    list-style-type: decimal;
-    margin: 10px 0 10px 20px;
-    padding: 0;
-    text-align: left;
-    color: #666466;
-    font-size: 1.2rem;
-    line-height: 1.6;
-}
-
+/* Image Containers */
 .feature_coverage,
 .imputation_quality_test,
 .downstream_task,
-.contents {
-    width: auto;          
-    height: auto;       
-    border-radius: 8px; 
-    display: block;      
-    margin: 0 auto; 
+.contents,
+.audience-award2 {
+    width: auto;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
 }
 
 .audience-award2 {
-    width: auto;          
-    max-width: 700px;    
-    height: auto;       
-    border-radius: 8px; 
-    display: block;      
-    margin: 0 auto; 
+    max-width: 700px;
 }
 
-.linkedin,
-.github,
-.bluesky,
-.instagram,
-.gmail {
+/* Logo */
+.logo {
     float: right;
     margin-left: 10px;
     width: 100%;

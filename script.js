@@ -2,10 +2,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // Dark Mode Functionality
     const toggleButton = document.getElementById('dark-mode-toggle');
     const toggleIcon = document.getElementById('toggle-icon');
+    const skillsScroll = document.querySelector('.skills-scroll');
 
     if (localStorage.getItem('dark-mode') === 'enabled') {
         document.body.classList.add('dark-mode');
-        toggleIcon.src = 'images/moon.jpg'; 
+        toggleIcon.src = 'images/dark_mode_toggle/moon.jpg'; 
+        skillsScroll.style.backgroundColor = 'white';
     }
 
     toggleButton.addEventListener('click', () => {
@@ -13,52 +15,64 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (document.body.classList.contains('dark-mode')) {
             localStorage.setItem('dark-mode', 'enabled');
-            toggleIcon.src = 'images/moon.jpg';
+            toggleIcon.src = 'images/dark_mode_toggle/moon.jpg';
+            skillsScroll.style.backgroundColor = 'white';
         } else {
             localStorage.removeItem('dark-mode');
-            toggleIcon.src = 'images/sun.jpg';
+            toggleIcon.src = 'images/dark_mode_toggle/sun.jpg';
+            skillsScroll.style.backgroundColor = '';
         }
     });
 
-    // Skills Scroll Functionality 
-    const skillsScroll = document.querySelector('.skills-scroll');
-    const scrollAmount = 120; 
 
-    function cloneImages() {
+    // Skills Scroll Functionality
+    const skillsSpeed = 2;
+
+    function cloneSkills() {
         const items = Array.from(skillsScroll.children);
-        const cloneItems = items.map(item => item.cloneNode(true)); 
-        cloneItems.forEach(item => skillsScroll.appendChild(item)); 
+        const cloneItems = items.map(item => item.cloneNode(true));
+        cloneItems.forEach(item => skillsScroll.appendChild(item));
     }
 
-    cloneImages();
+    cloneSkills();
 
-    function continuousScroll() {
-        
-        skillsScroll.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    let skillsScrollPosition = 0;
 
-        if (skillsScroll.scrollLeft + skillsScroll.offsetWidth >= skillsScroll.scrollWidth) {
-            setTimeout(() => {
-                skillsScroll.scrollLeft = 0;
-            }, 500); 
+    function scrollSkills() {
+        skillsScrollPosition += skillsSpeed;
+        if (skillsScrollPosition >= skillsScroll.scrollWidth / 2) {
+            skillsScrollPosition = 0;
         }
+        skillsScroll.scrollLeft = skillsScrollPosition;
     }
 
-    setInterval(continuousScroll, 30);
+    setInterval(scrollSkills, 16);
+
 
     // Grades Scroll Functionality
     const gradesScroll = document.querySelector('.grades-scroll');
-    
-    function continuousGradesScroll() {
-        gradesScroll.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    const gradesSpeed = 1;
 
-        if (gradesScroll.scrollLeft + gradesScroll.offsetWidth >= gradesScroll.scrollWidth) {
-            setTimeout(() => {
-                gradesScroll.scrollLeft = 0;
-            }, 500); 
-        }
+    function cloneGrades() {
+        const items = Array.from(gradesScroll.children);
+        const cloneItems = items.map(item => item.cloneNode(true));
+        cloneItems.forEach(item => gradesScroll.appendChild(item));
     }
 
-    setInterval(continuousGradesScroll, 30); 
+    cloneGrades();
+
+    let gradesScrollPosition = 0;
+
+    function scrollGrades() {
+        gradesScrollPosition += gradesSpeed;
+        if (gradesScrollPosition >= gradesScroll.scrollWidth) {
+            gradesScrollPosition = 0;
+        }
+        gradesScroll.scrollLeft = gradesScrollPosition;
+    }
+
+    setInterval(scrollGrades, 16);
+
 
     // Typing Effect Functionality
     const textElement = document.getElementById('typing-text');
