@@ -1,6 +1,6 @@
 # Mason Shipton's Personal Website
 
-This is the personal website of Mason Shipton. The website includes sections about his academic background, research, publications, and contact information.
+This is the personal website of Mason Shipton. The website includes sections about his academic background, story, interests, research, publications, resume, and contact information.
 
 ## Features
 - **Home**: A brief introduction and background on Mason Shipton.
