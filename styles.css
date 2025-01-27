@@ -99,6 +99,18 @@ main h1 {
 }
 
 /* Flex Containers */
+.home-text-and-image {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+
 .text-and-image {
     display: flex;
     align-items: flex-start;
@@ -108,6 +120,28 @@ main h1 {
     max-width: 1000px;
     margin: 0 auto;
 }
+
+.image-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.image-column img {
+    max-width: auto;
+    border-radius: 8px;
+    display: block;
+}
+
+
+.text-column {
+    flex: 1;
+    text-align: justify;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
 
 .generic-image {
     max-width: 350px;
