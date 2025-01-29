@@ -110,7 +110,6 @@ main h1 {
     padding: 0 50px;
 }
 
-
 .text-and-image {
     display: flex;
     align-items: flex-start;
@@ -127,13 +126,11 @@ main h1 {
     gap: 10px;
 }
 
-
 .image-column img {
     max-width: auto;
     border-radius: 8px;
     display: block;
 }
-
 
 .text-column {
     flex: 1;
@@ -141,7 +138,6 @@ main h1 {
     font-size: 1.2rem;
     line-height: 1.6;
 }
-
 
 .generic-image {
     max-width: 350px;
@@ -278,4 +274,73 @@ figcaption {
     margin-left: 10px;
     max-width: 50px;
     border-radius: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    .home-text-and-image,
+    .text-and-image {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    .image-column {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .image-column img {
+        max-width: 90%;
+        margin: 10px 0;
+    }
+
+    .text-column {
+        text-align: center;
+        font-size: 1rem;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .skills-scroll,
+    .grades-scroll {
+        flex-direction: column;
+        overflow: auto;
+    }
+
+    .generic-image {
+        max-width: 250px;
+    }
+}
+
+/* Additional Small Device Adjustments */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    nav ul li a {
+        font-size: 16px;
+    }
+
+    .generic-image {
+        max-width: 200px;
+    }
+
+    .text-column {
+        font-size: 0.9rem;
+    }
 }
