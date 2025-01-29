@@ -24,9 +24,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-
     // Skills Scroll Functionality
     const skillsSpeed = 2;
+    let skillsScrollInterval;
 
     function cloneSkills() {
         const items = Array.from(skillsScroll.children);
@@ -46,12 +46,41 @@ document.addEventListener("DOMContentLoaded", () => {
         skillsScroll.scrollLeft = skillsScrollPosition;
     }
 
-    setInterval(scrollSkills, 16);
+    function startSkillsScroll() {
+        skillsScrollInterval = setInterval(scrollSkills, 16);
+    }
 
+    function stopSkillsScroll() {
+        clearInterval(skillsScrollInterval);
+    }
+
+    startSkillsScroll();
+
+    document.querySelectorAll('.skill-item').forEach(item => {
+        const description = item.getAttribute('data-description');
+        const descriptionBox = document.createElement('div');
+        descriptionBox.classList.add('skill-description');
+        descriptionBox.textContent = description;
+        item.parentElement.appendChild(descriptionBox);
+
+        item.addEventListener('mouseenter', () => {
+            stopSkillsScroll();
+            descriptionBox.style.display = 'block';
+            const itemRect = item.getBoundingClientRect();
+            descriptionBox.style.top = itemRect.top + itemRect.height + 'px';
+            descriptionBox.style.left = itemRect.left + 'px';
+        });
+
+        item.addEventListener('mouseleave', () => {
+            startSkillsScroll();
+            descriptionBox.style.display = 'none';
+        });
+    });
 
     // Grades Scroll Functionality
     const gradesScroll = document.querySelector('.grades-scroll');
     const gradesSpeed = 1;
+    let gradesScrollInterval;
 
     function cloneGrades() {
         const items = Array.from(gradesScroll.children);
@@ -71,8 +100,20 @@ document.addEventListener("DOMContentLoaded", () => {
         gradesScroll.scrollLeft = gradesScrollPosition;
     }
 
-    setInterval(scrollGrades, 16);
+    function startGradesScroll() {
+        gradesScrollInterval = setInterval(scrollGrades, 16);
+    }
 
+    function stopGradesScroll() {
+        clearInterval(gradesScrollInterval);
+    }
+
+    startGradesScroll();
+
+    document.querySelectorAll('.grade-item').forEach(item => {
+        item.addEventListener('mouseenter', stopGradesScroll);
+        item.addEventListener('mouseleave', startGradesScroll);
+    });
 
     // Typing Effect Functionality
     const textElement = document.getElementById('typing-text');
