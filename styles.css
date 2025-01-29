@@ -186,6 +186,22 @@ main h1 {
     transform: scale(1.2);
 }
 
+.skill-tooltip,
+.grade-tooltip {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    max-width: 250px;
+    white-space: normal;
+    word-wrap: break-word;
+    display: none;
+    z-index: 1000;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
 /* Button Styles */
 button {
     padding: 10px 20px;

@@ -27,6 +27,10 @@ document.addEventListener("DOMContentLoaded", () => {
     // Skills Scroll Functionality
     const skillsSpeed = 2;
     let skillsScrollInterval;
+    let skillsScrollPosition = 0;
+    const tooltip = document.createElement('div');
+    tooltip.classList.add('skill-tooltip');
+    document.body.appendChild(tooltip);
 
     function cloneSkills() {
         const items = Array.from(skillsScroll.children);
@@ -35,8 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     cloneSkills();
-
-    let skillsScrollPosition = 0;
 
     function scrollSkills() {
         skillsScrollPosition += skillsSpeed;
@@ -58,29 +60,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelectorAll('.skill-item').forEach(item => {
         const description = item.getAttribute('data-description');
-        const descriptionBox = document.createElement('div');
-        descriptionBox.classList.add('skill-description');
-        descriptionBox.textContent = description;
-        item.parentElement.appendChild(descriptionBox);
-
-        item.addEventListener('mouseenter', () => {
-            stopSkillsScroll();
-            descriptionBox.style.display = 'block';
-            const itemRect = item.getBoundingClientRect();
-            descriptionBox.style.top = itemRect.top + itemRect.height + 'px';
-            descriptionBox.style.left = itemRect.left + 'px';
+    
+        item.addEventListener('mouseenter', (event) => {
+            stopSkillsScroll();  
+    
+            if (description) {
+                tooltip.textContent = description;
+                tooltip.style.display = 'block';
+    
+                const itemRect = item.getBoundingClientRect();
+                tooltip.style.top = `${window.scrollY + itemRect.bottom + 5}px`;
+                tooltip.style.left = `${window.scrollX + itemRect.left}px`;
+            }
         });
-
+    
         item.addEventListener('mouseleave', () => {
-            startSkillsScroll();
-            descriptionBox.style.display = 'none';
+            startSkillsScroll();  
+            tooltip.style.display = 'none'; 
         });
     });
-
+    
     // Grades Scroll Functionality
     const gradesScroll = document.querySelector('.grades-scroll');
     const gradesSpeed = 1;
     let gradesScrollInterval;
+    let gradesScrollPosition = 0;
+
+    const gradeTooltip = document.createElement('div');
+    gradeTooltip.classList.add('grade-tooltip');
+    document.body.appendChild(gradeTooltip);
 
     function cloneGrades() {
         const items = Array.from(gradesScroll.children);
@@ -89,8 +97,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     cloneGrades();
-
-    let gradesScrollPosition = 0;
 
     function scrollGrades() {
         gradesScrollPosition += gradesSpeed;
@@ -111,8 +117,25 @@ document.addEventListener("DOMContentLoaded", () => {
     startGradesScroll();
 
     document.querySelectorAll('.grade-item').forEach(item => {
-        item.addEventListener('mouseenter', stopGradesScroll);
-        item.addEventListener('mouseleave', startGradesScroll);
+        const description = item.getAttribute('data-description');
+    
+        item.addEventListener('mouseenter', (event) => {
+            stopGradesScroll();
+    
+            if (description) {
+                gradeTooltip.textContent = description;
+                gradeTooltip.style.display = 'block';
+    
+                const itemRect = item.getBoundingClientRect();
+                gradeTooltip.style.top = `${window.scrollY + itemRect.top - gradeTooltip.offsetHeight - 5}px`;
+                gradeTooltip.style.left = `${window.scrollX + itemRect.left}px`;
+            }
+        });
+    
+        item.addEventListener('mouseleave', () => {
+            startGradesScroll(); 
+            gradeTooltip.style.display = 'none'; 
+        });
     });
 
     // Typing Effect Functionality
