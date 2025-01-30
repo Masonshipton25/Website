@@ -306,27 +306,46 @@ figcaption {
     .text-and-image {
         flex-direction: column;
         align-items: center;
+        justify-content: center;
+        text-align: center;
         padding: 0 20px;
     }
 
     .image-column {
         width: 100%;
+        display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
+        align-items: center;
     }
 
     .image-column img {
-        max-width: 90%;
+        max-width: 100%;
+        width: 80%; 
+        height: auto;
         margin: 10px 0;
+        display: block;
     }
 
     .text-column {
         text-align: center;
-        font-size: 1rem;
+        font-size: 1.2rem;
+        width: 100%;
     }
     .generic-image {
-        max-width: 250px;
+        max-width: 350px;
+        width: 90%;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .research-image,
+    .audience-award2 {
+        max-width: 450px;
+        width: 90%;
+        display: block;
+        margin: 0 auto;
     }
 }
 
@@ -340,10 +359,22 @@ figcaption {
     }
 
     .generic-image {
-        max-width: 200px;
+        max-width: 300px;
+        width: 100%;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .research-image,
+    .audience-award2 {
+        max-width: 400px;
+        width: 100%;
+        display: block;
+        margin: 0 auto;
     }
 
     .text-column {
-        font-size: 0.9rem;
+        font-size: 1rem;
+        text-align: center;
     }
 }
