@@ -78,6 +78,24 @@ document.addEventListener("DOMContentLoaded", () => {
             startSkillsScroll();  
             tooltip.style.display = 'none'; 
         });
+
+        item.addEventListener('touchstart', (event) => {
+            stopSkillsScroll();  
+    
+            if (description) {
+                tooltip.textContent = description;
+                tooltip.style.display = 'block';
+    
+                const itemRect = item.getBoundingClientRect();
+                tooltip.style.top = `${window.scrollY + itemRect.bottom + 5}px`;
+                tooltip.style.left = `${window.scrollX + itemRect.left}px`;
+            }
+        });
+    
+        item.addEventListener('touchend', () => {
+            startSkillsScroll();  
+            tooltip.style.display = 'none'; 
+        });
     });
     
     // Grades Scroll Functionality
@@ -133,6 +151,24 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     
         item.addEventListener('mouseleave', () => {
+            startGradesScroll(); 
+            gradeTooltip.style.display = 'none'; 
+        });
+
+        item.addEventListener('touchstart', (event) => {
+            stopGradesScroll();
+        
+            if (description) {
+                gradeTooltip.textContent = description;
+                gradeTooltip.style.display = 'block';
+        
+                const itemRect = item.getBoundingClientRect();
+                gradeTooltip.style.top = `${window.scrollY + itemRect.top - gradeTooltip.offsetHeight - 5}px`;
+                gradeTooltip.style.left = `${window.scrollX + itemRect.left}px`;
+            }
+        });
+    
+        item.addEventListener('touchend', () => {
             startGradesScroll(); 
             gradeTooltip.style.display = 'none'; 
         });
