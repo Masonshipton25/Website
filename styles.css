@@ -284,6 +284,18 @@ figcaption {
     max-width: 700px;
 }
 
+a {
+    color: #1E90FF;
+}
+
+.dark-mode a {
+    color: #FFD700; 
+}
+
+.dark-mode nav a {
+    color: #f78a2f;
+}
+
 /* Logo */
 .logo {
     float: right;
